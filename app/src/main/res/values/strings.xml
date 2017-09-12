@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Litrail-android</string>
+    <string name="app_name">Litrail</string>
     <string name="title_home">Tvarkaraštis</string>
     <string name="title_dashboard">Žymės</string>
     <string name="title_notifications">Pranešimai</string>
