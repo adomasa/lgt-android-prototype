@@ -3,4 +3,7 @@
     <string name="title_home">Tvarkaraštis</string>
     <string name="title_dashboard">Žymės</string>
     <string name="title_notifications">Pranešimai</string>
+    <string name="title_map">Žemėlapis</string>
+    <string name="action_settings">Nustatymai</string>
+    <string name="action_report">Pranešti apie klaidą</string>
 </resources>
