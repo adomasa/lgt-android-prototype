@@ -6,4 +6,9 @@
     <string name="title_map">Žemėlapis</string>
     <string name="action_settings">Nustatymai</string>
     <string name="action_report">Pranešti apie klaidą</string>
+    <string name="departure_date">Pasirinkite išvykimo datą</string>
+    <string name="departure_place">Išvykimo vieta</string>
+    <string name="undefined_place">Nepasirinkta vieta</string>
+    <string name="destination">Atvykimo vieta</string>
+    <string name="search">Ieškoti</string>
 </resources>

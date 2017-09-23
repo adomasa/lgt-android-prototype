@@ -15,32 +15,138 @@
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <FrameLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content">
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="361dp"
+            android:layout_height="306dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="0dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/pin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/calendarView"
+            app:layout_constraintTop_toBottomOf="@+id/departurePlaceLabel"
+            app:srcCompat="@drawable/ic_place" />
+
+        <View
+            android:id="@+id/pinLine"
+            android:layout_width="1dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:background="#8dffffff"
+            app:layout_constraintLeft_toLeftOf="@+id/pin1"
+            app:layout_constraintTop_toBottomOf="@+id/pin1" />
+
+        <ImageView
+            android:id="@+id/pin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="56dp"
+            app:layout_constraintLeft_toLeftOf="@+id/pin1"
+            app:layout_constraintTop_toBottomOf="@+id/pin1"
+            app:srcCompat="@drawable/ic_place" />
 
         <TextView
-            android:id="@+id/message"
-            android:layout_width="match_parent"
+            android:id="@+id/departurePlaceLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/title_home" />
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:text="@string/departure_place"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            app:layout_constraintLeft_toRightOf="@+id/pin1"
+            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/arrivalPlaceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="25dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:text="@string/destination"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            app:layout_constraintLeft_toRightOf="@+id/pin2"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDeparture" />
+
+        <Button
+            android:id="@+id/buttonDeparture"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="1dp"
+            android:text="@string/undefined_place"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/pin1"
+            app:layout_constraintTop_toBottomOf="@+id/departurePlaceLabel" />
+
+        <Button
+            android:id="@+id/buttonDestination"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="0dp"
+            android:text="@string/undefined_place"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/pin2"
+            app:layout_constraintTop_toBottomOf="@+id/arrivalPlaceLabel" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="392dp"
+            android:layout_height="53dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/search"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDestination" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="0dp"
         android:background="?android:attr/windowBackground"
+        android:paddingBottom="0dp"
         app:itemIconTint="@color/nav_drawer_item"
         app:itemTextColor="@color/nav_drawer_item"
         app:menu="@menu/navigation" />
