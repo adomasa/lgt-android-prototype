@@ -30,7 +30,6 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="0dp"
             android:scaleX="1"
             android:scaleY="1"
             app:layout_constraintHorizontal_bias="0.486"
@@ -41,13 +40,15 @@
         <ImageView
             android:id="@+id/pin1"
             android:layout_width="wrap_content"
-            tools:ignore="ContentDescription"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="-3dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/colorSelected"
             app:layout_constraintLeft_toLeftOf="@+id/calendarView"
             app:layout_constraintTop_toBottomOf="@+id/departurePlaceLabel"
-            app:srcCompat="@drawable/ic_place" />
+            app:srcCompat="@drawable/ic_place"
+            tools:ignore="ContentDescription" />
 
         <View
             android:id="@+id/pinLine"
@@ -62,14 +63,14 @@
 
         <ImageView
             android:id="@+id/pin2"
-            tools:ignore="ContentDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
             android:layout_marginTop="56dp"
+            android:backgroundTint="@color/colorSelected"
             app:layout_constraintLeft_toLeftOf="@+id/pin1"
             app:layout_constraintTop_toBottomOf="@+id/pin1"
-            app:srcCompat="@drawable/ic_place" />
+            app:srcCompat="@drawable/ic_place"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/departurePlaceLabel"
@@ -81,6 +82,7 @@
             android:ems="10"
             android:text="@string/departure_place"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="14sp"
             app:layout_constraintLeft_toRightOf="@+id/pin1"
             app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
@@ -88,22 +90,25 @@
             android:id="@+id/arrivalPlaceLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="21dp"
             android:background="@android:color/transparent"
             android:ems="10"
             android:text="@string/destination"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="14sp"
             app:layout_constraintLeft_toRightOf="@+id/pin2"
             app:layout_constraintTop_toBottomOf="@+id/buttonDeparture" />
 
         <Button
             android:id="@+id/buttonDeparture"
             style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-            android:layout_width="wrap_content"
+            android:layout_width="310dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="2dp"
             android:text="@string/undefined_place"
             android:textSize="18sp"
             app:layout_constraintLeft_toRightOf="@+id/pin1"
@@ -112,10 +117,11 @@
         <Button
             android:id="@+id/buttonDestination"
             style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-            android:layout_width="wrap_content"
+            android:layout_width="310dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="-4dp"
             android:text="@string/undefined_place"
             android:textSize="18sp"
             app:layout_constraintLeft_toRightOf="@+id/pin2"
@@ -123,19 +129,23 @@
 
         <Button
             android:id="@+id/buttonSearch"
-            android:layout_width="392dp"
+            android:layout_width="match_parent"
             android:layout_height="53dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorSelected"
             android:text="@string/search"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonDestination" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonDestination"
+            app:layout_constraintVertical_bias="1.0" />
 
     </android.support.constraint.ConstraintLayout>
 

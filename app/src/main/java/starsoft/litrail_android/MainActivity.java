@@ -3,10 +3,12 @@ package starsoft.litrail_android;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.PorterDuff;
 import android.icu.text.DateFormat;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Tvarkaraščių užklausa");
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -67,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         final CalendarView departureDatePicker = (CalendarView) findViewById(R.id.calendarView);
 
         final Calendar departureDate = Calendar.getInstance();
-        final Resources resources = getResources();
 
         // rodomi navigacijos elementų pavadinimai
         BottomNavigationViewExpander.disableShiftMode(navigation);
@@ -86,20 +88,28 @@ public class MainActivity extends AppCompatActivity {
         // paspaustas išvykimo stočių mygtukas, rodantis sąrašą vietų
         departureStationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                popUpLocationPicker(resources.getString(R.string.select_departure_station), stationsAdapter, departureStationButton);
+                departureStationButton.getBackground().setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.text), PorterDuff.Mode.SRC_ATOP);
+                popUpLocationPicker(getResources().getString(R.string.select_departure_station), stationsAdapter, departureStationButton);
             }
         });
         // paspaustas atvykimo stočių mygtukas, rodantis sąrašą vietų
         arrivalStationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                popUpLocationPicker(resources.getString(R.string.select_arrival_station), stationsAdapter, arrivalStationButton);
+                arrivalStationButton.getBackground().setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.text), PorterDuff.Mode.SRC_ATOP);
+                popUpLocationPicker(getResources().getString(R.string.select_arrival_station), stationsAdapter, arrivalStationButton);
             }
         });
 
         // paspaustas paieškos mygtukas, pateikiantis paieškos užklausą kontroleriui
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Query to DB", Toast.LENGTH_SHORT).show();
+                if (!isInputValid(departureStationButton, arrivalStationButton)) {
+                    Toast.makeText(getApplicationContext(), "Klaida. Nenurodytas pilnas maršrutas.", Toast.LENGTH_SHORT).show();
+                }
+                else if (departureStationButton.getText().equals(arrivalStationButton.getText())) {
+                    Toast.makeText(getApplicationContext(), "Tokiam maršrutui traukinių nereikia!", Toast.LENGTH_SHORT).show();
+                }
+                else Toast.makeText(getApplicationContext(), "Ok", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -153,4 +163,18 @@ public class MainActivity extends AppCompatActivity {
         alertDialogObject.show();
     }
 
+    private boolean isInputValid(Button button1, Button button2) {
+        boolean status = true;
+
+        if (button1.getText().equals(getResources().getString(R.string.undefined_place))) {
+            status = false;
+            button1.getBackground().setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.error), PorterDuff.Mode.SRC_ATOP);
+        }
+        if (button2.getText().equals(getResources().getString(R.string.undefined_place))) {
+            status = false;
+            button2.getBackground().setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.error), PorterDuff.Mode.SRC_ATOP);
+        }
+
+        return status;
+    }
 }
