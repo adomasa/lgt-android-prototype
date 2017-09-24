@@ -10,5 +10,9 @@
     <item android:id="@+id/action_report"
         android:title="@string/action_report"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/about_us"
+        android:title="@string/about_us"
+        app:showAsAction="ifRoom" />
 
 </menu>

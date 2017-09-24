@@ -141,6 +141,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_report:
                 return true;
+            case R.id.about_us:
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
@@ -156,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int item) {
                 // pakeičia mygtuko tekstą į pasirinktą
                 button.setText(adapter.getItem(item));
-
             }
         });
         AlertDialog alertDialogObject = dialogBuilder.create();
