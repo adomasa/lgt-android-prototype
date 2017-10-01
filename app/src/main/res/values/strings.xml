@@ -9,9 +9,20 @@
     <string name="departure_date">Pasirinkite išvykimo datą</string>
     <string name="departure_place">Išvykimo vieta</string>
     <string name="undefined_place">Nepasirinkta vieta</string>
+    <string name="test_place">Vietelė123</string>
     <string name="destination">Atvykimo vieta</string>
     <string name="search">Ieškoti</string>
     <string name="title_activity_settings">Nustatymai</string>
     <string name="select_departure_station">Pasirinkite išvykimo stotį</string>
     <string name="select_arrival_station">Pasirinkite atvykimo stotį</string>
     <string name="about_us">Apie mus</string>
+    <string name="title_activity_maps">Stotys</string>
+
+    <string name="timetableSearchTAG">timetableSearchFragment</string>
+    <string name="date">Data</string>
+    <string name="departureTime">Išvykimo laikas</string>
+    <string name="undefined_time">Nežinomas laikas</string>
+    <string name="arrivalTime">Atvykimo laikas</string>
+    <string name="duration">Trukmė</string>
+    <string name="testTime">00:00</string>
+</resources>

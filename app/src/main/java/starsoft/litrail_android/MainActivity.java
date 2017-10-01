@@ -1,49 +1,60 @@
 package starsoft.litrail_android;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.PorterDuff;
-import android.icu.text.DateFormat;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.DatePicker;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import starsoft.litrail_android.Fragments.MapFragment;
+import starsoft.litrail_android.Fragments.RouteDataFragment;
+import starsoft.litrail_android.Fragments.SavedRoutesFragment;
+import starsoft.litrail_android.Fragments.TimetableSearchFragment;
+import starsoft.litrail_android.Model.SavedRoute;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TimetableSearchFragment.OnFragmentInteractionListener, SavedRoutesFragment.OnListFragmentInteractionListener {
+
+    private Fragment timetableSearchFragment;
+    private Fragment savedRoutesFragment;
+    private Fragment mapFragment;
+
+    private String currentFragmentTAG;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    fragmentTransaction.replace(R.id.content, timetableSearchFragment);
+                    fragmentTransaction.addToBackStack(currentFragmentTAG);
+                    fragmentTransaction.commit();
+                    currentFragmentTAG = TimetableSearchFragment.TAG;
                     return true;
                 case R.id.navigation_dashboard:
+                    fragmentTransaction.replace(R.id.content, savedRoutesFragment);
+                    fragmentTransaction.addToBackStack(currentFragmentTAG);
+                    fragmentTransaction.commit();
+                    currentFragmentTAG = SavedRoutesFragment.TAG;
                     return true;
                 case R.id.navigation_map:
+                    fragmentTransaction.replace(R.id.content, mapFragment);
+                    fragmentTransaction.addToBackStack(currentFragmentTAG);
+                    fragmentTransaction.commit();
+                    currentFragmentTAG = MapFragment.TAG;
                     return true;
                 case R.id.navigation_notifications:
                     return true;
@@ -57,71 +68,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("Tvarkaraščių užklausa");
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        final Button departureStationButton = (Button) findViewById(R.id.buttonDeparture);
-        final Button arrivalStationButton = (Button) findViewById(R.id.buttonDestination);
-        final Button searchButton = (Button) findViewById(R.id.buttonSearch);
-        final CalendarView departureDatePicker = (CalendarView) findViewById(R.id.calendarView);
-
-        final Calendar departureDate = Calendar.getInstance();
-
         // rodomi navigacijos elementų pavadinimai
         BottomNavigationViewExpander.disableShiftMode(navigation);
 
-        //demo DB stočių duomenys
-        List<String> stations = new ArrayList<>();
-        stations.add("Vilnius");
-        stations.add("Kaunas");
-        stations.add("Šiauliai");
-        stations.add("Klaipėda");
-        stations.add("Panevėžys");
-        stations.add("Radviliškis");
-        final ArrayAdapter<String> stationsAdapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, stations);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        // paspaustas išvykimo stočių mygtukas, rodantis sąrašą vietų
-        departureStationButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                departureStationButton.getBackground().setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.text), PorterDuff.Mode.SRC_ATOP);
-                popUpLocationPicker(getResources().getString(R.string.select_departure_station), stationsAdapter, departureStationButton);
-            }
-        });
-        // paspaustas atvykimo stočių mygtukas, rodantis sąrašą vietų
-        arrivalStationButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                arrivalStationButton.getBackground().setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.text), PorterDuff.Mode.SRC_ATOP);
-                popUpLocationPicker(getResources().getString(R.string.select_arrival_station), stationsAdapter, arrivalStationButton);
-            }
-        });
 
-        // paspaustas paieškos mygtukas, pateikiantis paieškos užklausą kontroleriui
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (!isInputValid(departureStationButton, arrivalStationButton)) {
-                    Toast.makeText(getApplicationContext(), "Klaida. Nenurodytas pilnas maršrutas.", Toast.LENGTH_SHORT).show();
-                }
-                else if (departureStationButton.getText().equals(arrivalStationButton.getText())) {
-                    Toast.makeText(getApplicationContext(), "Tokiam maršrutui traukinių nereikia!", Toast.LENGTH_SHORT).show();
-                }
-                else Toast.makeText(getApplicationContext(), "Ok", Toast.LENGTH_SHORT).show();
-            }
-        });
+        timetableSearchFragment = TimetableSearchFragment.newInstance();
+        savedRoutesFragment = SavedRoutesFragment.newInstance();
+        mapFragment = MapFragment.newInstance();
 
-        // Pakeista data datos pasirinkimo widget'e
-        departureDatePicker.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                departureDate.set(year, month, dayOfMonth);
-                Toast.makeText(getApplicationContext(),
-                        "Data: " + year + " " + month + " " + dayOfMonth, Toast.LENGTH_SHORT).show();
-            }
-        });
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.content, timetableSearchFragment).commit();
     }
 
     // Inicializuojamas viršutinis meniu langas
@@ -136,12 +98,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                // User chose the "Settings" item, show the app settings UI...
-                return true;
+//            case R.id.action_settings:
+//                return true;
             case R.id.action_report:
                 return true;
             case R.id.about_us:
+                popUpAboutUsDialog();
                 return true;
             default:
                 // If we got here, the user's action was not recognized.
@@ -151,31 +113,46 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void popUpLocationPicker(String title, final ArrayAdapter<String> adapter, final Button button) {
+    private void popUpAboutUsDialog() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setTitle(title);
-        dialogBuilder.setAdapter(adapter, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int item) {
-                // pakeičia mygtuko tekstą į pasirinktą
-                button.setText(adapter.getItem(item));
+        dialogBuilder.setTitle("Apie mus");
+        dialogBuilder.setMessage("Litrail-android prototipas. \n" +
+                "Komandos Starsoft projektinis darbas.");
+        dialogBuilder.setPositiveButton("Uždaryti langą", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
             }
         });
-        AlertDialog alertDialogObject = dialogBuilder.create();
-        alertDialogObject.show();
+        dialogBuilder.create().show();
     }
 
-    private boolean isInputValid(Button button1, Button button2) {
-        boolean status = true;
-
-        if (button1.getText().equals(getResources().getString(R.string.undefined_place))) {
-            status = false;
-            button1.getBackground().setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.error), PorterDuff.Mode.SRC_ATOP);
+    @Override
+    public void onFragmentInteraction(Uri uri, Bundle args) {
+        String operation = uri.toString();
+        if (operation.equals("SavedRoutesFragment")) {
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            RouteDataFragment routeDataFragment = RouteDataFragment.newInstance();
+            routeDataFragment.setArguments(args);
+            fragmentTransaction.replace(R.id.content, routeDataFragment);
+            fragmentTransaction.commit();
         }
-        if (button2.getText().equals(getResources().getString(R.string.undefined_place))) {
-            status = false;
-            button2.getBackground().setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.error), PorterDuff.Mode.SRC_ATOP);
-        }
+    }
 
-        return status;
+    @Override
+    public void onListFragmentInteraction(SavedRoute route) {
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+
+        Bundle args = new Bundle();
+        args.putString("DEPARTURE_STATION", route.departureStation);
+//        Log.d("BUNDLE", "DEPARTURE: " + route.departureStation);
+        args.putString("ARRIVAL_STATION", route.arrivalStation);
+//        Log.d("BUNDLE", "ARRIVAL: " + route.arrivalStation);
+        RouteDataFragment routeDataFragment = RouteDataFragment.newInstance();
+        routeDataFragment.setArguments(args);
+        fragmentTransaction.replace(R.id.content, routeDataFragment);
+        fragmentTransaction.commit();
     }
 }

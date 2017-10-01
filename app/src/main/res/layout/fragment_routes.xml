@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        card_view:cardCornerRadius="4dp"
+        android:elevation="2dp"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <FrameLayout
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:background="@color/colorAccent">
+
+        </FrameLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                card_view:layout_constraintGuide_percent="0.5"
+                tools:layout_editor_absoluteY="0dp"
+                tools:layout_editor_absoluteX="80dp" />
+
+            <TextView
+                android:id="@+id/departureTimeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:text="@string/departure_place"
+                android:textAppearance="@android:style/TextAppearance.Material.Small"
+                android:layout_marginTop="7dp"
+                card_view:layout_constraintTop_toBottomOf="@+id/dateTextView"
+                android:layout_marginStart="0dp"
+                card_view:layout_constraintLeft_toLeftOf="@+id/dateTextView" />
+
+            <TextView
+                android:id="@+id/arrivalTimeLabel"
+                android:layout_width="163dp"
+                android:layout_height="18dp"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:text="@string/destination"
+                android:textAlignment="textEnd"
+                android:textAppearance="@android:style/TextAppearance.Material.Small"
+                tools:layout_editor_absoluteY="43dp"
+                android:layout_marginEnd="16dp"
+                card_view:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="7dp"
+                card_view:layout_constraintTop_toBottomOf="@+id/dateTextView" />
+
+            <TextView
+                android:id="@+id/departureLocationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/undefined_place"
+                android:textAppearance="@android:style/TextAppearance.Material.Widget.Toolbar.Title"
+                android:layout_marginTop="0dp"
+                card_view:layout_constraintTop_toBottomOf="@+id/departureTimeLabel"
+                android:layout_marginStart="0dp"
+                card_view:layout_constraintLeft_toLeftOf="@+id/departureTimeLabel" />
+
+            <TextView
+                android:id="@+id/arrivalLocationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/undefined_place"
+                android:textAlignment="textEnd"
+                android:textAppearance="@android:style/TextAppearance.Material.Widget.Toolbar.Title"
+                android:layout_marginTop="0dp"
+                card_view:layout_constraintTop_toBottomOf="@+id/arrivalTimeLabel"
+                android:layout_marginEnd="16dp"
+                card_view:layout_constraintRight_toRightOf="parent" />
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maršruto pavadinimas"
+                android:textAppearance="@android:style/TextAppearance.Material.WindowTitle"
+                android:textSize="24sp"
+                android:layout_marginStart="16dp"
+                card_view:layout_constraintLeft_toLeftOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

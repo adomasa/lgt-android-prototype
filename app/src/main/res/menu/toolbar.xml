@@ -4,9 +4,9 @@
     app:context=".MainActivity">
 
     <!-- Settings, should always be in the overflow -->
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        app:showAsAction="ifRoom"/>
+    <!--<item android:id="@+id/action_settings"-->
+        <!--android:title="@string/action_settings"-->
+        <!--app:showAsAction="ifRoom"/>-->
     <item android:id="@+id/action_report"
         android:title="@string/action_report"
         app:showAsAction="ifRoom"/>

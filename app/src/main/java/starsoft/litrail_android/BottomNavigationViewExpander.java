@@ -11,11 +11,11 @@ import android.util.Log;
 import java.lang.reflect.Field;
 
 /**
- * DEFAULT: jei navigacijos elementų yra > 3, elementų pavadinimai sutraukiami
+ * DEFAULT: jei navigacijos elementų yra > 3, pagal naują dizainą elementų pavadinimai yra sutraukiami
  * Ši klasė default funkcionalumą išjungia ir leidžia rodyti pavadinimus, kai elementų yra > 3
  */
-public class BottomNavigationViewExpander {
-    public static void disableShiftMode(BottomNavigationView view) {
+class BottomNavigationViewExpander {
+    static void disableShiftMode(BottomNavigationView view) {
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
         try {
             Field shiftingMode = menuView.getClass().getDeclaredField("mShiftingMode");
