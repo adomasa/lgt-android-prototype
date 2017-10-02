@@ -24,6 +24,7 @@ import starsoft.litrail_android.Fragments.SavedRoutesFragment;
 import starsoft.litrail_android.Fragments.TimetableSearchFragment;
 import starsoft.litrail_android.Model.SavedRoute;
 
+
 // TODO: Implement backstack management properly / fix the current one
 
 public class MainActivity extends AppCompatActivity implements TimetableSearchFragment.OnFragmentInteractionListener, SavedRoutesFragment.OnListFragmentInteractionListener {
@@ -184,7 +185,6 @@ public class MainActivity extends AppCompatActivity implements TimetableSearchFr
             fragmentTransaction.addToBackStack(currentFragmentTAG);
             parentFragmentTAG = TimetableSearchFragment.TAG;
             currentFragmentTAG = RouteDataFragment.TAG;
-            fragmentTransaction.commit();
         }
     }
 

@@ -61,6 +61,7 @@ public class SavedRoutesRecyclerViewAdapter extends RecyclerView.Adapter<SavedRo
             super(view);
             mView = view;
             departureLocation = (TextView) view.findViewById(R.id.messageDateTextView);
+            departureLocation = (TextView) view.findViewById(R.id.departureLocationTextView);
             arrivalLocation = (TextView) view.findViewById(R.id.arrivalLocationTextView);
         }
 

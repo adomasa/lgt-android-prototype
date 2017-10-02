@@ -1,5 +1,5 @@
 # litrail-android
-Mobilioji lietuvos geležinkelių tvarkaraščių aplikacija android platformai
+Mobilioji Lietuvos geležinkelių tvarkaraščių aplikacija Android platformai
 
 # Nuorodos
 * Užduočių skirstymui: https://trello.com/b/CIjDOuEb/litrail-android 

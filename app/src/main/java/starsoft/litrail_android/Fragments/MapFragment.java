@@ -14,7 +14,6 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import starsoft.litrail_android.MainActivity;
 import starsoft.litrail_android.R;
 

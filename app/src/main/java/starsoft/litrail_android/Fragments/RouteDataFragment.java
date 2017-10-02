@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,9 @@ public class RouteDataFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_route_data, container, false);
+
         departureLocationTextView = (TextView) view.findViewById(R.id.messageDateTextView);
+        departureLocationTextView = (TextView) view.findViewById(R.id.departureLocationTextView);
         arrivalLocationTextView = (TextView) view.findViewById(R.id.arrivalLocationTextView);
 
         Bundle bundle = getArguments();
@@ -56,9 +59,8 @@ public class RouteDataFragment extends Fragment {
         arrivalLocationTextView.setText(arrivalLocation);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.listTime);
         recyclerView.setAdapter(new RouteDataRecyclerViewAdapter(RouteTimes.ITEMS, mListener));
-
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+  
         return view;
     }
 

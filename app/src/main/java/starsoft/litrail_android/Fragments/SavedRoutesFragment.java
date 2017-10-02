@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import starsoft.litrail_android.MainActivity;
+
 import starsoft.litrail_android.R;
 import starsoft.litrail_android.Model.SavedRoute;
 import starsoft.litrail_android.Model.SavedRoutes;
@@ -17,6 +18,8 @@ import starsoft.litrail_android.Model.SavedRoutes;
 public class SavedRoutesFragment extends Fragment {
 
     public static final String TAG = "SavedRoutesFragment";
+    public String departureStation;
+    public String arrivalStation;
 
     private OnListFragmentInteractionListener mListener;
 
@@ -49,6 +52,7 @@ public class SavedRoutesFragment extends Fragment {
             recyclerView.setAdapter(new SavedRoutesRecyclerViewAdapter(SavedRoutes.ITEMS, mListener));
         }
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
         return view;
     }
 
