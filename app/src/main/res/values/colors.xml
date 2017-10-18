@@ -6,4 +6,6 @@
     <color name="error">#FF6E6E</color>
     <color name="text">#ffffff</color>
     <color name="actionBar">#37474F</color>
+    <color name="darkBackground">#303030</color>
+
 </resources>
