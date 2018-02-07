@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--<item-->
+        <!--android:drawable="@color/darkBackground"/>-->
+
     <item
-        android:drawable="@color/darkBackground"/>
-
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@mipmap/ic_launcher"/>
-    </item>
-
+        android:drawable="@drawable/ic_train"
+        android:width="100px"
+        android:height="100px"
+        android:gravity="center" />
 </layer-list>

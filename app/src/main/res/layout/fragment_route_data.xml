@@ -61,11 +61,11 @@
                 android:ems="10"
                 android:text="@string/date"
                 android:textAppearance="@android:style/TextAppearance.Material.Small"
-                app:layout_constraintLeft_toLeftOf="@+id/departureDateTextView"
+                app:layout_constraintLeft_toLeftOf="@+id/departureDate"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/departureDateTextView"
+                android:id="@+id/departureDate"
                 android:layout_width="109dp"
                 android:layout_height="28dp"
                 android:layout_marginLeft="16dp"
@@ -95,7 +95,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/departureLocationTextView"
+                android:id="@+id/departureLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
@@ -123,7 +123,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/arrivalLocationTextView"
+                android:id="@+id/arrivalLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -150,6 +150,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context="starsoft.litrail_android.Fragments.RouteDataFragment"
+        tools:context="starsoft.lgt.RouteDataFragment"
         tools:listitem="@layout/fragment_route_time" />
 </LinearLayout>

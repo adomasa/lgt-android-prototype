@@ -4,117 +4,123 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:tag="@string/timetableSearchTAG"
-    tools:context="starsoft.litrail_android.Fragments.TimetableSearchFragment">
+    tools:context="starsoft.lgt.TimetableSearchFragment">
 
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="361dp"
-            android:layout_height="306dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:scaleX="1"
-            android:scaleY="1"
-            app:layout_constraintHorizontal_bias="0.486"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="361dp"
+                    android:layout_height="306dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:scaleX="1"
+                    android:scaleY="1"
+                    app:layout_constraintHorizontal_bias="0.486"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/userPinSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/colorAccent"
-            app:layout_constraintLeft_toLeftOf="@+id/calendarView"
-            app:layout_constraintTop_toBottomOf="@+id/departurePlaceLabelTimetableSearch"
-            app:srcCompat="@drawable/ic_user_location"
-            tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/userPinSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/calendarView"
+                    app:layout_constraintTop_toBottomOf="@+id/departurePlaceLabelSearch"
+                    app:srcCompat="@drawable/ic_location_24dp"
+                    tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:id="@+id/destinationPinSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-            android:backgroundTint="@color/colorAccent"
-            app:layout_constraintLeft_toLeftOf="@+id/userPinSearch"
-            app:layout_constraintTop_toBottomOf="@+id/userPinSearch"
-            app:srcCompat="@drawable/ic_destination"
-            tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/destinationPinSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="56dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/userPinSearch"
+                    app:layout_constraintTop_toBottomOf="@+id/userPinSearch"
+                    app:srcCompat="@drawable/ic_destination_24dp"
+                    tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/departurePlaceLabelTimetableSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/transparent"
-            android:ems="10"
-            android:text="@string/departure_place"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textSize="14sp"
-            app:layout_constraintLeft_toRightOf="@+id/userPinSearch"
-            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+                <TextView
+                    android:id="@+id/departurePlaceLabelSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:text="@string/departure_place"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toRightOf="@+id/userPinSearch"
+                    app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
-        <TextView
-            android:id="@+id/arrivalPlaceLabelTimetableSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="21dp"
-            android:background="@android:color/transparent"
-            android:ems="10"
-            android:text="@string/destination"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textSize="14sp"
-            app:layout_constraintLeft_toRightOf="@+id/destinationPinSearch"
-            app:layout_constraintTop_toBottomOf="@+id/buttonDeparture" />
+                <TextView
+                    android:id="@+id/arrivalPlaceLabelSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="21dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:text="@string/destination"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toRightOf="@+id/destinationPinSearch"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDeparture" />
 
-        <Button
-            android:id="@+id/buttonDeparture"
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-            android:layout_width="310dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="2dp"
-            android:text="@string/undefined_place"
-            android:textSize="18sp"
-            app:layout_constraintLeft_toRightOf="@+id/userPinSearch"
-            app:layout_constraintTop_toBottomOf="@+id/departurePlaceLabelTimetableSearch" />
+                <Button
+                    android:id="@+id/buttonDeparture"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/undefined_place"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toRightOf="@+id/userPinSearch"
+                    app:layout_constraintTop_toBottomOf="@+id/departurePlaceLabelSearch" />
 
-        <Button
-            android:id="@+id/buttonDestination"
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-            android:layout_width="310dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/undefined_place"
-            android:textSize="18sp"
-            app:layout_constraintLeft_toRightOf="@+id/destinationPinSearch"
-            app:layout_constraintTop_toBottomOf="@+id/arrivalPlaceLabelTimetableSearch" />
+                <Button
+                    android:id="@+id/buttonDestination"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/undefined_place"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toRightOf="@+id/destinationPinSearch"
+                    app:layout_constraintTop_toBottomOf="@+id/arrivalPlaceLabelSearch" />
 
-        <Button
-            android:id="@+id/buttonSearch"
-            android:layout_width="0dp"
-            android:layout_height="53dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#37474F"
-            android:text="@string/search"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonDestination"
-            app:layout_constraintVertical_bias="0.0" />
+                <Button
+                    android:id="@+id/buttonSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/search"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDestination"
+                    app:layout_constraintVertical_bias="0.0" />
 
-</android.support.constraint.ConstraintLayout>
-        </ScrollView>
+            <ImageButton
+                android:id="@+id/micButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="50dp"
+                android:src="@drawable/ic_mic_24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonDeparture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/departurePlaceLabelSearch" />
+
+        </android.support.constraint.ConstraintLayout>
+</ScrollView>

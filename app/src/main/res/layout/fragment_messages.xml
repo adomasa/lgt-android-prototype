@@ -16,13 +16,13 @@
         android:elevation="2dp"
         app:cardCornerRadius="4dp">
 
-        <FrameLayout
-            android:layout_width="5dp"
-            android:layout_height="match_parent"
-            android:background="#546E7A"
-            android:visibility="visible">
+        <!--<FrameLayout-->
+            <!--android:layout_width="5dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#546E7A"-->
+            <!--android:visibility="visible">-->
 
-        </FrameLayout>
+        <!--</FrameLayout>-->
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             tools:layout_editor_absoluteY="0dp">
 
             <TextView
-                android:id="@+id/messageTitleTextView"
+                android:id="@+id/messageTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -48,10 +48,9 @@
                 app:layout_constraintLeft_toLeftOf="parent" />
 
             <TextView
-                android:id="@+id/messageContentTextView"
-                android:layout_width="match_parent"
+                android:id="@+id/departureLabel"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:text="@string/content_sample"
@@ -60,10 +59,10 @@
                 android:textSize="15sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/messageTitleTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/messageTitle" />
 
             <TextView
-                android:id="@+id/messageDateTextView"
+                android:id="@+id/messageDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -72,21 +71,21 @@
                 android:textAppearance="@android:style/TextAppearance.Material.Widget.TextView"
                 android:textSize="12sp"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/messageContentTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/departureLabel"
+                android:layout_marginEnd="5dp" />
 
             <TextView
                 android:id="@+id/messageDateLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="0dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginTop="0dp"
                 android:text="@string/published"
                 android:textAppearance="@android:style/TextAppearance.Material.Widget.TextView"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/messageDateTextView"
-                app:layout_constraintRight_toLeftOf="@+id/messageDateTextView"
-                app:layout_constraintTop_toTopOf="@+id/messageDateTextView" />
+                app:layout_constraintBottom_toBottomOf="@+id/messageDate"
+                app:layout_constraintRight_toLeftOf="@+id/messageDate"
+                app:layout_constraintTop_toTopOf="@+id/messageDate"
+                android:layout_marginEnd="5dp" />
 
             <android.support.constraint.Guideline
                 android:id="@+id/guideline"
@@ -94,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.5"
-                tools:layout_editor_absoluteX="206dp"
+                tools:layout_editor_absoluteX="194dp"
                 tools:layout_editor_absoluteY="30dp" />
 
         </android.support.constraint.ConstraintLayout>

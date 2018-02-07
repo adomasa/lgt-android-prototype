@@ -26,8 +26,14 @@
     <string name="duration">Trukmė</string>
     <string name="testTime">00:00</string>
     <string name="message_title_sample">Pranešimo pavadinimas</string>
-    <string name="content_sample">Lorem ipsum dolor sit amet, mea ei veri saepe nostrud, sit ad modus diceret, id duo diceret hendrerit. Ei sea possit atomorum. Apeirian posidonium sit id, mea eripuit imperdiet eloquentiam at, eum dicat epicurei ne. Sit in eius oporteat erroribus, vis phaedrum reformidans et. Pro ut ludus soluta tincidunt, audiam repudiandae te mel.
-</string>
+    <string name="content_sample">Lorem ipsum dolor sit amet, mea ei veri saepe nostrud, sit ad modus diceret, id duo diceret hendrerit. Ei sea possit atomorum. Apeirian posidonium sit id, mea eripuit imperdiet eloquentiam at, eum dicat epicurei ne. Sit in eius oporteat erroribus, vis phaedrum reformidans et. Pro ut ludus soluta tincidunt, audiam repudiandae te mel.</string>
+    <string name="speech_prompt">Noriu nuvykti iš … į …</string>
+    <string name="speech_not_supported">Deja, tavo įrenginys šios funkcijos nepalaiko :(</string>
     <string name="sample_date">2017-10-12</string>
     <string name="published">Publikuota:</string>
+    <string name="dialog_cancel">Atšaukti</string>
+    <string name="action_open_timetable">open_timetable</string>
+    <string name="key_departure_station">departure_station</string>
+    <string name="key_arrival_station">arrival_station</string>
+    <string name="title_fragment_map">Stotys ir maršrutai</string>
 </resources>

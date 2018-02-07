@@ -17,13 +17,13 @@
         android:elevation="2dp"
         android:foreground="?android:attr/selectableItemBackground">
 
-        <FrameLayout
-            android:layout_width="5dp"
-            android:layout_height="match_parent"
-            android:visibility="visible"
-            android:background="@color/colorAccent">
+        <!--<FrameLayout-->
+            <!--android:layout_width="5dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:visibility="visible"-->
+            <!--android:background="@color/colorAccent">-->
 
-        </FrameLayout>
+        <!--</FrameLayout>-->
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                 tools:layout_editor_absoluteX="80dp" />
 
             <TextView
-                android:id="@+id/messageContentTextView"
+                android:id="@+id/departureLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -52,9 +52,9 @@
                 android:text="@string/departure_place"
                 android:textAppearance="@android:style/TextAppearance.Material.Small"
                 android:layout_marginTop="7dp"
-                card_view:layout_constraintTop_toBottomOf="@+id/messageTitleTextView"
+                card_view:layout_constraintTop_toBottomOf="@+id/messageTitle"
                 android:layout_marginStart="0dp"
-                card_view:layout_constraintLeft_toLeftOf="@+id/messageTitleTextView" />
+                card_view:layout_constraintLeft_toLeftOf="@+id/messageTitle" />
 
             <TextView
                 android:id="@+id/arrivalTimeLabel"
@@ -69,21 +69,21 @@
                 android:layout_marginEnd="16dp"
                 card_view:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="7dp"
-                card_view:layout_constraintTop_toBottomOf="@+id/messageTitleTextView" />
+                card_view:layout_constraintTop_toBottomOf="@+id/messageTitle" />
 
             <TextView
-                android:id="@+id/messageDateTextView"
+                android:id="@+id/messageDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/undefined_place"
                 android:textAppearance="@android:style/TextAppearance.Material.Widget.Toolbar.Title"
                 android:layout_marginTop="0dp"
-                card_view:layout_constraintTop_toBottomOf="@+id/messageContentTextView"
+                card_view:layout_constraintTop_toBottomOf="@+id/departureLabel"
                 android:layout_marginStart="0dp"
-                card_view:layout_constraintLeft_toLeftOf="@+id/messageContentTextView" />
+                card_view:layout_constraintLeft_toLeftOf="@+id/departureLabel" />
 
             <TextView
-                android:id="@+id/arrivalLocationTextView"
+                android:id="@+id/arrivalLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/undefined_place"
@@ -95,7 +95,7 @@
                 card_view:layout_constraintRight_toRightOf="parent" />
 
             <TextView
-                android:id="@+id/messageTitleTextView"
+                android:id="@+id/messageTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Maršruto pavadinimas"

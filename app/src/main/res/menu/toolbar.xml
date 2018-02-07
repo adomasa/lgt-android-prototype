@@ -8,12 +8,10 @@
         app:showAsAction="always" />
 
     <item android:id="@+id/action_report"
-        android:icon="@drawable/ic_bookmark_not_added"
         android:title="@string/action_report"
         app:showAsAction="never"/>
     <item
         android:id="@+id/about_us"
-        android:icon="@drawable/ic_bookmark_not_added"
         android:title="@string/about_us"
         app:showAsAction="never" />
 

@@ -8,5 +8,5 @@
     android:layout_height="match_parent"
     android:gravity="center"
     app:layoutManager="LinearLayoutManager"
-    tools:context="starsoft.litrail_android.Fragments.SavedRoutesFragment"
+    tools:context="starsoft.lgt.SavedRoutesFragment"
     tools:listitem="@layout/fragment_routes" />
