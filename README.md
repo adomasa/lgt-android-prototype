@@ -1,5 +1,5 @@
 # lgt-android
-Mobiliosios lietuvos geležinkelių tvarkaraščių aplikacijos Android platformai prototipas.
+Mobiliosios lietuvos geležinkelių tvarkaraščių aplikacijos Android platformai dalinai veikiantis prototipas.
 
 
 PSI dokumentai - https://drive.google.com/drive/folders/0B0t5BX8SpH8gdjNZcjNzcW5KUUk?usp=sharing
